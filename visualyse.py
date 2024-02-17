@@ -99,9 +99,9 @@ def upload_image():
         cv2.imwrite(output_path, img)
 
         # Запуск функции recognize в отдельном процессе
-        p = Process(target=recognize, args=(output_path,"C:\dev\detection\Template (1).jpeg"))
+        p = Process(target=recognize, args=(output_path,"/home/ADS/detection/Template (1).jpeg"))
         p.start()
-        p = Process(target=recognize, args=(output_path,"C:\dev\detection\Template (2).jpeg"))
+        p = Process(target=recognize, args=(output_path,"/home/ADS/detection/Template (2).jpeg"))
         p.start()
 
         return 200
