@@ -107,9 +107,9 @@ def upload_image():
         return 200
 def recognize_all():
         for filename in os.listdir('uploaded_images'):
-            recognize('uploaded_images' + '/' + filename,"C:\dev\detection\Template (1).jpeg")
+            recognize('uploaded_images' + '/' + filename,"home/ADS/detection/Template (1).jpeg")
             time.sleep(1)
-            recognize('uploaded_images' + '/' + filename,"C:\dev\detection\Template (2).jpeg")
+            recognize('uploaded_images' + '/' + filename,"home/ADS/detection/Template (2).jpeg")
 
 if __name__ == '__main__':
 
