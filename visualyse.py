@@ -99,17 +99,17 @@ def upload_image():
         cv2.imwrite(output_path, img)
 
         # Запуск функции recognize в отдельном процессе
-        p = Process(target=recognize, args=(output_path,"/home/ADS/detection/Template (1).jpeg"))
+        p = Process(target=recognize, args=(output_path,"/home/ADS/detection/Template1.jpeg"))
         p.start()
-        p = Process(target=recognize, args=(output_path,"/home/ADS/detection/Template (2).jpeg"))
+        p = Process(target=recognize, args=(output_path,"/home/ADS/detection/Template2.jpeg"))
         p.start()
 
         return 200
 def recognize_all():
         for filename in os.listdir('uploaded_images'):
-            recognize('uploaded_images' + '/' + filename,"home/ADS/detection/Template (1).jpeg")
+            recognize('uploaded_images' + '/' + filename,"home/ADS/detection/Template1.jpeg")
             time.sleep(1)
-            recognize('uploaded_images' + '/' + filename,"home/ADS/detection/Template (2).jpeg")
+            recognize('uploaded_images' + '/' + filename,"home/ADS/detection/Template2.jpeg")
 
 if __name__ == '__main__':
 
