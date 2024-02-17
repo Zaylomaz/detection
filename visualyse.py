@@ -12,27 +12,26 @@ app = Flask(__name__)
 import time
 import shutil
 def recognize(filename, template):
-    # Проверка существования файла
     if not os.path.exists(filename):
         print(f"Файл {filename} не найден")
         return 'Неудачно', 400
 
-    # Добавление небольшой задержки перед чтением файла
+
     time.sleep(1)
 
-    # Загрузка исходного изображения и изображения для сравнения
-    img1 = cv2.imread(template, 0)  # Исходное изображение
-    img2 = cv2.imread(filename, 0)  # Загруженное изображение
+
+    img1 = cv2.imread(template, 0) 
+    img2 = cv2.imread(filename, 0) 
 
     # Проверка корректности изображения
     if img2 is None or img2.dtype != np.uint8:
         print(f"Изображение {filename} пустое или имеет некорректную глубину")
         return 'Неудачно', 400
 
-    # Инициализация SIFT детектора
+
     sift = cv2.SIFT_create()
 
-    # Нахождение ключевых точек и дескрипторов для обоих изображений
+
     kp1, des1 = sift.detectAndCompute(img1, None)
     kp2, des2 = sift.detectAndCompute(img2, None)
 
